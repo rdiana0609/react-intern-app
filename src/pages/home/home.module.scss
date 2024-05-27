@@ -1,0 +1,242 @@
+@import 'styles/breakpoints';
+@import 'styles/variables';
+
+.home {
+  // background-color: #0a0b1a;
+  color: $light-color;
+  min-height: 100vh;
+  padding-top: 2rem;
+  display: flex;
+  justify-content:center;
+  align-items: flex-start;
+  background-size: cover; /* Ensure the image covers the entire card */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  
+  
+  
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    // margin: 0 auto;
+     
+    // Apply spacing between the containers for all devices
+    margin-bottom: 2rem;
+
+    // Remove spacing for devices where containers are in rows
+    @include for-tablet-portrait-up {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+  }
+
+  .cards-container {
+    background-color: $secondary-color;
+    
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    flex: 3;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-family: $font-family-base, sans-serif;
+      
+    }
+
+    .card-list {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .card {
+      // background: #1e1f2b;
+      background-size: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      text-align: left;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(100%); 
+
+      &:hover {
+        transform: scale(1.05);
+
+        .button-group {
+          opacity: 1;
+        }
+      }
+
+      h2 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+        color: $light-color;
+      }
+
+      p {
+        font-size: 1rem;
+        color: $light-color;
+        font-family: $font-family-base, sans-serif;
+      }
+
+      .button-group {
+        display: flex;
+        justify-content: flex-end;
+        gap:0.5rem;
+        margin-top: 0.5rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+        // font-family: 'Poppins', sans-serif;
+        
+        button {
+          padding: 0.5rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+          font-weight: 400;
+          
+
+          &.edit {
+            font-family: $font-family-base, sans-serif;
+            background-color: $primary-color;
+            color: $light-color;
+            
+
+            &:hover {
+              font-family: $font-family-base, sans-serif;
+              background-color: #2c9e9e;
+            }
+          }
+
+          &.delete {
+            font-family: $font-family-base, sans-serif;
+            background-color: $dark-color;
+            color: $light-color;
+
+            &:hover {
+              font-family: $font-family-base, sans-serif;
+              background-color: #11121d;
+            }
+          }
+        }
+      }
+    }
+
+    // Remove bottom margin for tablet portrait and above
+    @include for-tablet-portrait-up {
+      margin-bottom: 0;
+    }
+  
+  .see-all-button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: $primary-color;
+    color: $light-color;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    margin-top: 1rem;
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+    font-family: $font-family-base, sans-serif;
+
+    &:hover {
+      background-color: #28a0a0;
+    }
+  }
+}
+  .form-container {
+    // background: linear-gradient(145deg, #0a0b1a, #1e1f2b);
+    /* Prevent the background image from repeating */
+    padding: 2rem;
+    
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    margin-right: 2rem;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+
+    // Add margin-bottom for all devices except where containers are in rows
+    margin-bottom: 2rem;
+
+    @include for-tablet-portrait-up {
+      width: 30%;
+      margin-left: 2rem; // Add spacing between the form container and cards container
+      margin-bottom: 0; // Remove bottom margin when displayed in rows
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-family: $font-family-base, sans-serif;
+    }
+
+    label {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      font-family: $font-family-base, sans-serif;
+    }
+
+    input, textarea {
+      width: 80%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      border: none;
+      background-color: $secondary-color;
+      color: $light-color;
+      font-size: 1rem;
+      font-family: $font-family-base, sans-serif;
+
+    }
+
+    button {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 10px;
+      background-color: $primary-color;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $font-family-base, sans-serif;
+      width: 60%;
+
+      &:hover {
+        background-color: #28a0a0;
+      }
+
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .error {
+      color: $danger-color;
+      margin-bottom: 1rem;
+      font-family:$font-family-base, sans-serif;
+    }
+  }
+}

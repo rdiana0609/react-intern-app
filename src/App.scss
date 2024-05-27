@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+@import 'styles/breakpoints.scss';
+@import 'styles/variables.scss';
+
+
+
+/* Header styles */
+.header {
+  // background-color: hsl(var(--background));
+  
+  padding: 10px 20px;
+  color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    
+    li {
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        text-decoration: none;
+        font-family: $font-family-base, sans-serif; 
+        color:$light-color; 
+        font-size: 16px; 
+        padding: 10px 15px; 
+        border-radius: 2px; 
+        transition: $primary-color; 
+        font-weight: bold;
+        &:hover {
+           /* Background color on hover */
+          color:$primary-color; /* Text color on hover */
+        }
+
+        &.active {
+          color:$primary-color; /* Background color for active link */
+           /* Text color for active link */
+           /* Bold font for active link */
+        }
+      }
+    }
+  }
+}
+/* Layout container */
+.layout-container {
+  min-height: 100vh;
+}
+
+/* Logo styles */
+
+.logo {
+  width: 160px; /* Default width for medium-sized screens */
+  height: auto;
+
+  @include for-phone-only {
+    width: 140px; /* Increased width for small devices */
+  }
+  @include for-tablet-portrait-up {
+    width: 180px; /* Increased width for tablets in portrait mode */
+  }
+  @include for-tablet-landscape-up {
+    width: 200px; /* Increased width for tablets in landscape mode */
+  }
+  @include for-desktop-up {
+    width: 220px; /* Increased width for desktop screens */
+  }
+  @include for-big-desktop-up {
+    width: 240px; /* Maximum width for very large screens */
+  }
+}
+:root {
+   background-color:$secondary-color ;
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 48%;
+  --radius: 0.5rem;
+}
